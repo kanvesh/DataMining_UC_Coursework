@@ -1,8 +1,11 @@
-cv.glm.custom = function (data, glmfit, cost = function(y, yhat) mean((y - yhat)^2), 
+#Custom version of the standard cv.glm package which provides auc as an additional output#
+#Requires ROCR package to be installed#
+#- Author: K Anvesh, Version:1.1, Date:1/16/2016#
+
+
+cv.glm = function (data, glmfit, cost = function(y, yhat) mean((y - yhat)^2), 
           K = n) 
 { 
-  #Custom version - Author: K Anvesh, Version:1.1, Date:1/16/2016"
-  
   library(ROCR)
   call <- match.call()
   if (!exists(".Random.seed", envir = .GlobalEnv, inherits = FALSE)) 
